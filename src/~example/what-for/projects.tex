@@ -1,0 +1,91 @@
+\subsection{Проекты}
+
+\begin{frame}{Интересные проекты}
+    \begin{center}
+        \tikzstyle{peoplef} = [
+            draw=green!50!black!70,thick,
+            minimum height=2cm,
+            minimum width=2cm,
+            top color=yellow!20,
+            bottom color=green!60!black!20,
+            decorate,decoration={
+                random steps,segment length=2pt,amplitude=1pt
+            }
+        ]
+        \tikzstyle{studyf} = [
+            draw=red!50!black!70,thick,
+            minimum height=3cm,
+            minimum width=3cm,
+            top color=yellow!20,
+            bottom color=red!60!black!20,
+            decorate,decoration={
+                random steps,segment length=2pt,amplitude=3pt
+            }
+        ]
+        \tikzstyle{jobf} = [
+            draw=blue!50!black!70,thick,
+            minimum height=2cm,
+            minimum width=2cm,
+            top color=yellow!20,
+            bottom color=blue!60!black!20,
+            decorate,decoration={
+                random steps,segment length=2pt,amplitude=1pt
+            }
+        ]
+        \tikzstyle{pojectsf} = [
+            rectangle, rounded corners,
+            thick,
+            minimum size=2cm,
+            draw=orange!50!black!50,
+            top color=white,
+            bottom color=orange!50!black!20
+        ]
+        \begin{tikzpicture}[
+            thick,node distance=3.8cm,
+            text height=2.7ex,text depth=.5ex,
+            auto
+        ]
+            \node[peoplef] (people) {
+                \SansRoundedLightC \color{green!50!black!90}
+                \scriptsize
+                \begin{tabular}{c}
+                    {\Huge $ \color{green!50!black!90} \lambda $} \\
+                    \\
+                    интересные \\
+                    люди \\
+                \end{tabular}
+            };
+            \node[studyf, right of=people] (study) {
+                \SansRoundedLightC  \color{red!50!black!90}
+                \begin{tabular}{c}
+                     {\Huge $ \color{red!50!black!90} \omega $} \\
+                     \\
+                    интересное \\
+                    обучение \\
+                \end{tabular}
+            };
+            \node[jobf, right of=study] (job) {
+                \SansRoundedLightC \color{blue!50!black!90}
+                \scriptsize
+                \begin{tabular}{c}
+                    {\Huge $ \color{blue!50!black!90} \rho $} \\
+                    \\
+                    интересная \\
+                    работа \\
+                \end{tabular}
+            };
+
+            \node[pojectsf, below of=study] (pojects) {
+                \SansRoundedLightC \color{orange!50!black!90}
+                \begin{tabular}{c}
+                     {\Huge $ \color{orange!50!black!90} \pi $} \\
+                     \\
+                    проекты\\
+                \end{tabular}
+            };
+            \path[->, red!50!black!90, very thick] (study) edge (pojects);
+        \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+

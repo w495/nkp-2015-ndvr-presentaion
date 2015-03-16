@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%            Для компиляции только в XeTeX         %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% шрифты и локализация основное
+%%%
+
+    \usepackage[cm-default]{fontspec}
+    \usepackage{xltxtra} % \XeLaTeX macro
+    \defaultfontfeatures{Mapping=tex-text}
+    \usepackage{polyglossia}
+
+    \setdefaultlanguage{russian}    % задаем язык по умолчанию,
+                                    % для правильного отображения некоторых разделов
+                                    % таких как Содержание, предметный указатель
+
+%%%
+%%% Зададим основные шрифты
+%%%     (!)
+%%%     обязателльно нужно проверить, есть ли у вас такие шрифты
+%%%     если нет, та попробуйте установить из папки fonts,
+%%%     или заменить на другие
+%%%
+
+    % тут использованы DejaVu шрифты --- они есть почти на всех ОС
+    % к тому же не все шрифты формально поддерживают кириллицу (ругаются когда, их назначаешь основным)
+
+    \newcommand{\setmaincyrfont}[1]{%
+        \newfontfamily{\cyrillicfont}{#1}\setmainfont{#1} }
+    \newcommand{\setromancyrfont}[1]{%
+        \newfontfamily{\cyrillicfonttt}{#1}\setromanfont{#1} }
+    %% Для некторых шрифтов нужно использовать эту команду.
+    \setmaincyrfont{Times New Roman}
+    \setsansfont{Calibri}
+    \setmonofont{LMMono12}
+    \setromancyrfont{LMMono12}
+
+
+%   \usepackage{lettrine}
+%   \usepackage{indentfirst}
+
+%%%
+%%% Зададим псевдонимы для шрифтов,
+%%%     чтобы можно было менять шрифт в тексте
+%%%     коменндой \fontspec
+%%%     (!)
+%%%     обязателльно нужно проверить, есть ли у вас такие шрифты
+%%%     если нет, та попробуйте установить из папки fonts,
+%%%     или заменить на другие
+%%%
+
+    \newcommand{\SansRoundedLightC}{\fontspec{SansRoundedLightC}}
+
+    \newcommand{\SansRoundedC}{\fontspec{SansRoundedC}}
+
+
+
+    \usepackage{wasysym}
+
+
+

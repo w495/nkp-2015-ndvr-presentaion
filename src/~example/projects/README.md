@@ -1,0 +1,12 @@
+== Что это ==
+
+Папка с описанием секции `Проекты`.
+
+    \section{Проекты}
+
+        \input{src/projects/simple}     %% Простые
+        \input{src/projects/big}        %% Сложные
+        \input{src/projects/bright}     %% Красочные
+        \input{src/projects/boring}     %% Не красочные
+        \input{src/projects/verybright} %% Очень красочные
+        \input{src/projects/end}        %% А что потом ...

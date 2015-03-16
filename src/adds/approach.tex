@@ -1,0 +1,29 @@
+
+\subsection{Алгоритм}
+
+\begin{frame}{Приложение: алгоритм поиска нечетких дубликатов}
+    \begin{itemize} \footnotesize
+        \item $\nv$\ ---~новое видео;
+        \item $\setsv = \{\sv[1], \sv[2], \dots, \sv[n]\}$\ ---~исходные видео:
+            \begin{itemize}
+                \item[${\color{zdarkblue}\leftarrow}$]
+                    {\scriptsize  $\setsv$ может быть пустым};
+                \item[${\color{zdarkblue}\leftarrow}$]
+                    {\scriptsize для непустого $\setsv$
+                        вычислены дескрипторы сцен элементов.}
+            \end{itemize}
+        \item[1.] Сравниваем дескриптор каждой
+            сцены $\videoshot_{\color{red}\nv,i}$ из $\nv$\
+            с дескриптором каждой сцены
+            $\videoshot_{\color{red}\sv[k],j}$ из $\sv[k]$ в $L_2$.
+        \item[2.] Если дескрипторы совпали $\nv$ c дескрипторами $\sv[k]$.
+            на~некотором временном промежутке ,
+            то считаем эту часть $\nv$\ ---~дубликатом $\sv[k]$,
+            \begin{itemize}
+                \item[] {\scriptsize несовпавшие
+                    части $\nv$\ помещаем в $\setsv$}.
+            \end{itemize}
+        \item[3.] Если дескрипторы не совпали, то считаем $\nv$\ уникальным и
+            добавляем в $\setsv$.
+    \end{itemize}
+\end{frame}

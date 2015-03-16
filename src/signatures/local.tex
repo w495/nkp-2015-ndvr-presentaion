@@ -1,0 +1,36 @@
+
+
+\subsection{Локальные}
+
+\begin{frame}{Локальные сигнатуры}
+    \begin{center}
+        \includegraphics[width=10cm]{img/video/points-of-interest-law-to-2006.pdf}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}{Локальные сигнатуры: оценка}
+
+    \orangebox{Пример}{
+        Пусть дано некоторое видео:
+        \begin{itemize}
+            \item разрешение $800 \times 600$ пикселей;
+            \item может быть найдено около $1000$ точек;
+        \end{itemize}
+        \vspace{1em}
+        Если таких видео много:
+        \begin{itemize}
+            \item $100 000$ видео-файлов;
+            \item по $5$ ключевых кадров в каждом виде;
+            \item[$\Rightarrow$] $500 000 000$ ключевых точек;
+        \end{itemize}
+        \vspace{1em}
+        Каждая точка представлена вектором:
+        \begin{itemize}
+            \item SIFT ($128$ компонент)
+            \item или PCA-SIFT ($64$ компоненты);
+        \end{itemize}
+    }
+
+\end{frame}
+

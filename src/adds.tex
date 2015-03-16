@@ -1,0 +1,16 @@
+\section{Приложения}
+
+
+\renewcommand{\thetitlemod}{
+    \ifnum\value{page}>1
+        \textcolor{zblue}
+            {$\insertframenumber \text{ из }
+            \inserttotalframenumber$~|~Приложение к <<Элементам поиска нечетких дубликатов видео>>}
+    \else
+        %
+    \fi
+}
+
+    \subimport{adds/}{approach}
+    \subimport{adds/}{relationaltime}
+    \subimport{adds/}{lingv}

@@ -1,0 +1,131 @@
+
+
+\begin{frame}{Общая схема поиска по видео}
+    \sf\scriptsize
+    \tikzstyle{videof} = [
+        rectangle, rounded corners,
+        thick,minimum size=3em,
+        draw=black!85,
+        top color=black!5,
+        bottom color=black!5
+    ]
+    \tikzstyle{methf} = [
+        rectangle, rounded corners,
+        thick,
+        minimum width =1em,
+        minimum height =2em,
+        draw=black!85,
+        top color=black!5,
+        bottom color=black!5,
+        text width=8em,
+        align=center,
+    ]
+    \tikzstyle{layerf} = [
+        rectangle,dashed,
+        thick,
+        minimum width =1em,
+        minimum height = 1em,
+        inner sep=0.5em,
+        draw=black!75,
+        decorate,decoration={random steps,segment length=0.5em,amplitude=0.1em}
+    ]
+    \tikzstyle{dbf} = [
+        cylinder,  shape border rotate=90,
+        aspect=0.25,
+        thick,
+        minimum size=2em,
+        draw=black!85,
+        top color=black!5,
+        bottom color=black!5
+    ]
+    \tikzstyle{qresf} = [
+        rectangle,
+        thick,
+        minimum width =2em,
+        minimum height =1em,
+        draw=black!85,
+        top color=black!5,
+        bottom color=black!5,
+        text width=5em,
+        align=center,
+        decorate,decoration={random steps,segment length=0.2em,amplitude=0.05em}
+    ]
+    \tikzstyle{userf} = [
+        rounded  rectangle,
+        thick,
+        minimum width =2em,
+        minimum height=2em,
+        draw=black!85,
+        top color=black!5,
+        bottom color=black!5,
+        align=center,
+    ]
+    \tikzstyle{arrowf} = [
+        -latex,thick,black!85,
+    ]
+    \tikzstyle{arrowr} = [
+        -latex,thick,dotted,pacificgray,
+    ]
+    \begin{center}
+        \begin{tikzpicture}[very thick,node distance=5em]
+            \node[videof] (video) {\small Видео};
+            \begin{scope}
+                \node[methf, below of=video]    (cshots)  {Съёмки};
+                \begin{scope}[node distance=10em]
+                    \node[methf, left of=cshots]    (cframes) {Кадры};
+                    \node[methf, right of=cshots]   (cscenes) {Сцены};
+                \end{scope}
+                \begin{scope}[on background layer]
+                    \node[layerf, fit=(cframes) (cshots) (cscenes), draw] (composition) {};
+                    \draw [arrowf] (video) -- (composition)
+                        node [midway, right] {\color{teal}Сегментация};
+                \end{scope}
+            \end{scope}
+            \begin{scope}
+                \node[methf, below of=composition]  (fmotion)   {Движение};
+                \begin{scope}[node distance=10em]
+                    \node[methf, left of=fmotion]       (fframes)   {Ключевые кадры};
+                    \node[methf, right of=fmotion]      (fobjects)  {Объекты};
+                \end{scope}
+                \begin{scope}[on background layer]
+                    \node[layerf, fit=(fobjects) (fmotion) (fframes), draw] (features) {};
+                    \draw [arrowf] (composition) -- (features)
+                                node [midway, right] {\color{teal}Выборка характеристик};
+                \end{scope}
+            \end{scope}
+            \begin{scope}
+                \node[methf, below of=fmotion]      (annotation)     {Аннотиро\-вание};
+                \begin{scope}[node distance=10em]
+                    \node[methf, left of=annotation]    (datamining)     {Анализ};
+                    \node[methf, right of=annotation]   (classification) {Классифи\-кация};
+                \end{scope}
+                \begin{scope}[on background layer]
+                    \node[layerf, fit=(annotation) (datamining) (classification), draw] (processing) {};
+                    \draw [arrowf] (features) -- (processing)
+                        node [midway, right] {\color{red}Построение сигнатур};
+                \end{scope}
+            \end{scope}
+            \begin{scope}[node distance=5em]
+                \node[dbf, below of=annotation]      (index)     {Индекс};
+                \draw [arrowf, rounded corners=2em] (processing.west) --  ++(-2em,0) |-  (index.west)
+                    node [near end, above, align=center, text width=6em]
+                        {\color{teal}Смысловая индексация};
+                \draw [arrowf, rounded corners=2em] (features.east) --  ++(2em,0) |-  (index.east)
+                    node [near end, above, align=center, text width=6em]
+                        {\color{teal}Индексация данных};
+            \end{scope}
+            \begin{scope}[node distance=5em]
+                \node[qresf, below left  of=index] (query)   {Запрос};
+                \node[qresf, below right of=index] (results) {Выдача};
+                \draw [arrowf] (index) to [bend left=20] (results);
+                \draw [arrowf] (query) to [bend left=20] (index);
+                \node[userf, below right of=query] (user) {\small  Зритель};
+                \draw [arrowf] (user)    to [bend left=20] (query);
+                \draw [arrowf] (results) to [bend left=20] (user);
+
+                \draw [arrowr, rounded corners=2em] (query.west) --  ++(-12em,0) |-  (video.west);
+
+            \end{scope}
+        \end{tikzpicture}
+    \end{center}
+\end{frame}

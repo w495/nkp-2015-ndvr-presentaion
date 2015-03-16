@@ -1,0 +1,161 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% подключение и настройка параметров презентации
+%%%
+
+
+\usetheme[
+    backgroundimagefile=./img/theme/background-common.png,
+    backgroundtitleimagefile=./img/theme/background-title.png
+]{tvzavr}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\imageemptyframew}[1]{
+    {
+        \setbeamercolor{background canvas}{bg=black}
+        \setbeamertemplate{background}{}
+        \setbeamertemplate{navigation symbols}{}
+        \begin{frame}[plain]
+            \begin{tikzpicture}[remember picture,overlay]
+                \node[at=(current page.center)] {
+                    \includegraphics[width=\paperwidth]{#1}
+                };
+            \end{tikzpicture}
+         \end{frame}
+    }
+}
+
+\newcommand{\imageemptyframeh}[1]{
+    {
+        \setbeamercolor{background canvas}{bg=black}
+        \setbeamertemplate{background}{}
+        \setbeamertemplate{navigation symbols}{}
+        \begin{frame}[plain]
+            \begin{tikzpicture}[remember picture,overlay]
+                \node[at=(current page.center)] {
+                    \includegraphics[height=\paperheight]{#1}
+                };
+            \end{tikzpicture}
+         \end{frame}
+    }
+}
+
+
+%%%
+%%% описание цветных вставок
+%%%
+
+\newcommand{\zgreentitlebox}[1]{
+    \setbeamercolor{lowercol}{fg=black,bg=zcreamgreen}
+    \begin{beamerboxesrounded}[lower=lowercol]
+        {} #1
+    \end{beamerboxesrounded}
+}
+
+\newcommand{\zgreenbox}[2]{
+    \setbeamercolor{uppercol}{fg=swhite,bg=zdarkgreen}
+    \setbeamercolor{lowercol}{fg=black,bg=zcreamgreen}
+    \begin{beamerboxesrounded}[upper=uppercol,lower=lowercol]
+        {#1} #2
+    \end{beamerboxesrounded}
+}
+
+\newcommand{\zbluebox}[2]{
+    \setbeamercolor{uppercol}{fg=swhite,bg=zdarkblue}
+    \setbeamercolor{lowercol}{fg=black,bg=zcreamblue}
+    \begin{beamerboxesrounded}[upper=uppercol,lower=lowercol]
+        {#1} #2
+    \end{beamerboxesrounded}
+}
+
+\newcommand{\zredbox}[2]{
+    \setbeamercolor{uppercol}{fg=swhite,bg=zdarkred}
+    \setbeamercolor{lowercol}{fg=black,bg=zcreamred}
+    \begin{beamerboxesrounded}[upper=uppercol,lower=lowercol]
+        {#1} #2
+    \end{beamerboxesrounded}
+}
+
+
+\newcommand{\lbgGrayBox}[2]{
+    %\setbeamercolor{uppergray}{fg=swhite,bg=gray}
+    \setbeamercolor{uppergray}{fg=swhite,bg=pacificgray}
+    \setbeamercolor{lowercol}{fg=black,bg=white}
+    \begin{beamerboxesrounded}[upper=uppergray,lower=lowercol]{#1}
+        #2
+    \end{beamerboxesrounded}
+}
+
+\newcommand{\lbgOrangeBox}[2]{
+    %\setbeamercolor{uppergray}{fg=swhite,bg=gray}
+    \setbeamercolor{uppergray}{fg=swhite,bg=pacificorange}
+    \setbeamercolor{lowercol}{fg=black,bg=white}
+    \begin{beamerboxesrounded}[upper=uppergray,lower=lowercol]{#1}
+        #2
+    \end{beamerboxesrounded}
+}
+
+
+\newcommand{\lbgGreenBox}[2]{
+    %\setbeamercolor{uppergray}{fg=swhite,bg=gray}
+    \setbeamercolor{uppergray}{fg=swhite,bg=grassgreen}
+    \setbeamercolor{lowercol}{fg=black,bg=white}
+    \begin{beamerboxesrounded}[upper=uppergray,lower=lowercol]{#1}
+        #2
+    \end{beamerboxesrounded}
+}
+
+
+
+\newcommand{\lbgBlueBox}[2]{
+    %\setbeamercolor{uppergray}{fg=swhite,bg=gray}
+    \setbeamercolor{uppergray}{fg=swhite,bg=gray!50!teal!50!black}
+    \setbeamercolor{lowercol}{fg=black,bg=white}
+    \begin{beamerboxesrounded}[upper=uppergray,lower=lowercol]{#1}
+        #2
+    \end{beamerboxesrounded}
+}
+
+
+
+\newcommand{\orangebox}[2]{
+    \setbeamercolor{uppercol}{fg=swhite,bg=pacificorange}
+    \setbeamercolor{lowercol}{fg=black,bg=pacificcream}
+    \begin{beamerboxesrounded}[upper=uppercol,lower=lowercol]
+        {#1} #2
+    \end{beamerboxesrounded}
+}
+
+
+\newcommand{\greenbox}[2]{
+    \setbeamercolor{uppergrn}{fg=swhite,bg=pacificgreen}
+    \setbeamercolor{lowercol}{fg=black,bg=pacificcream}
+    \begin{beamerboxesrounded}[upper=uppergrn,lower=lowercol]
+        {#1}  #2
+    \end{beamerboxesrounded}
+}
+
+\newcommand{\bluebox}[2]{
+    \setbeamercolor{upperblue}{fg=swhite,bg=pacificblue}
+    \setbeamercolor{lowercol}{fg=black,bg=pacificcream}
+    \begin{beamerboxesrounded}[upper=upperblue,lower=lowercol]
+        {#1}  #2
+    \end{beamerboxesrounded}
+}
+
+\newcommand{\graybox}[2]{
+    \setbeamercolor{uppergray}{fg=swhite,bg=pacificgray}
+    \setbeamercolor{lowercol}{fg=black,bg=pacificcream}
+    \begin{beamerboxesrounded}[upper=uppergray,lower=lowercol]
+        {#1}  #2
+    \end{beamerboxesrounded}
+}
+
+\newcommand{\grassgreenbox}[2]{
+    \setbeamercolor{uppergrass}{fg=swhite,bg=grassgreen}
+    \setbeamercolor{lowercol}{fg=black,bg=pacificcream}
+    \begin{beamerboxesrounded}[upper=uppergrass,lower=lowercol]
+        { #1 }  #2
+    \end{beamerboxesrounded}
+}

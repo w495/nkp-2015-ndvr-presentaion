@@ -1,0 +1,11 @@
+== Что это ==
+
+Папка с описанием секции `Работа`.
+
+    \section{Работа}
+
+        \input{src/job/study}       %% Учебные проекты
+        \input{src/job/real}        %% Взрослые проекты
+        \input{src/job/success}     %% Успешные проекты
+        \input{src/job/formula}     %% Формула
+

@@ -1,0 +1,70 @@
+
+\begin{frame}[fragile]{Нечеткие дубликаты видео по~Шену}
+
+
+    \lbgOrangeBox{Общая сцена, разные условия съемки и варианты монтажа}{
+        \begin{center}
+            \begin{tikzcd}[column sep=5pc,ampersand replacement=\&]
+                \raisebox{-.4\height}{\includegraphics[height=2.5cm]{img/video/ndvex/drone/ndvex-drone-01-orig.jpg}}
+                    \arrow[teal, leftrightsquigarrow]{r}{\text{\color{teal}{\large $\simeq$} дубликат}}
+                    \arrow[teal, leftrightsquigarrow]{d}{\text{\color{teal}{\large $\simeq$} дубликат}}
+                    \arrow[red, leftrightarrow, dashed]{rd}{\text{\color{red}{\large $\not\simeq$} уже не~дубликат}}
+                \&
+                \raisebox{-.4\height}{\includegraphics[height=2cm]{img/video/ndvex/drone/ndvex-drone-01-x1.jpg}}
+                \\
+                \raisebox{-.4\height}{\includegraphics[height=2cm]{img/video/ndvex/drone/ndvex-drone-01-y1.jpg}}
+                \&
+                \raisebox{-.4\height}{\includegraphics[height=2cm]{img/video/ndvex/drone/ndvex-drone-02.jpg}}
+            \end{tikzcd}
+            %
+            % \begin{tikzcd}[column sep=2pc,ampersand replacement=\&]
+            %     \raisebox{-.4\height}{\includegraphics[height=1.7cm]{img/video/ndvex/drone/ndvex-drone-01-orig.jpg}}
+            %         \arrow[teal, leftrightsquigarrow]{r}{\text{\color{teal} \Large $\simeq$}}
+            %         \arrow[teal, leftrightsquigarrow]{d}{\text{\color{teal} \Large $\simeq$}}
+            %         \arrow[teal, leftrightsquigarrow, bend right=15]{rd}{\text{\color{teal} \Large $\simeq$}}
+            %         \arrow[red, leftrightarrow, dashed,
+            %             %bend left=3,
+            %             start anchor=south east,
+            %             end anchor=north west
+            %         ]{rrd}{\text{\color{red} \Large $\not\simeq$}}
+            %     \&
+            %     \raisebox{-.4\height}{\includegraphics[height=1.3cm]{img/video/ndvex/drone/ndvex-drone-01-x2.jpg}}
+            %         \arrow[teal, leftrightsquigarrow]{r}{\text{\color{teal} \Large $\simeq$}}
+            %     \&
+            %     \raisebox{-.4\height}{\includegraphics[height=1.3cm]{img/video/ndvex/drone/ndvex-drone-01-y2.jpg}}
+            %         \arrow[red, leftrightarrow, dashed]{d}{\text{\color{red} \Large $\not\simeq$}}
+            %     \\
+            %     \raisebox{-.4\height}{\includegraphics[height=1.3cm]{img/video/ndvex/drone/ndvex-drone-01-x1.jpg}}
+            %         \arrow[teal, leftrightsquigarrow]{r}{\text{\color{teal} \Large $\simeq$}}
+            %     \&
+            %     \raisebox{-.4\height}{\includegraphics[height=1.3cm]{img/video/ndvex/drone/ndvex-drone-01-y1.jpg}}
+            %         \arrow[red, leftrightarrow, dashed]{r}{\text{\color{red} \Large $\not\simeq$}}
+            %     \&
+            %     \raisebox{-.4\height}{\includegraphics[height=1.3cm]{img/video/ndvex/drone/ndvex-drone-02.jpg}}
+            % \end{tikzcd}
+            %
+            % \begin{tikzcd}[column sep=2pc,row sep=1.3pc,ampersand replacement=\&]
+            %     \raisebox{-.4\height}{\includegraphics[height=1.6cm]{img/video/ndvex/drone/ndvex-drone-01-orig.jpg}}
+            %         \arrow[teal, leftrightsquigarrow]{r}{\text{\color{teal} \Large $\simeq$}}
+            %         \arrow[teal, leftrightsquigarrow]{d}{\text{\color{teal} \Large $\simeq$}}
+            %         \arrow[teal, leftrightsquigarrow]{rd}{\text{\color{teal} \Large $\simeq$}}
+            %         \arrow[red, leftrightarrow, dashed, bend left=10, end anchor=north west]{rdd}{
+            %             \text{\color{red} \Large $\not\simeq$}}
+            %     \&
+            %     \raisebox{-.4\height}{\includegraphics[height=1.4cm]{img/video/ndvex/drone/ndvex-drone-01-x1.jpg}}
+            %         \arrow[teal, leftrightsquigarrow]{d}{\text{\color{teal} \Large $\simeq$}}
+            %     \\
+            %     \raisebox{-.4\height}{\includegraphics[height=1.4cm]{img/video/ndvex/drone/ndvex-drone-01-x2.jpg}}
+            %         \arrow[teal, leftrightsquigarrow]{d}{\text{\color{teal} \Large $\simeq$}}
+            %     \&
+            %     \raisebox{-.4\height}{\includegraphics[height=1.4cm]{img/video/ndvex/drone/ndvex-drone-01-y1.jpg}}
+            %         \arrow[red, leftrightarrow, dashed]{d}{\text{\color{red} \Large $\not\simeq$}}
+            %     \\
+            %     \raisebox{-.4\height}{\includegraphics[height=1.4cm]{img/video/ndvex/drone/ndvex-drone-01-y2.jpg}}
+            %             \arrow[red, leftrightarrow, dashed]{r}{\text{\color{red} \Large $\not\simeq$}}
+            %     \&
+            %     \raisebox{-.4\height}{\includegraphics[height=1.4cm]{img/video/ndvex/drone/ndvex-drone-02.jpg}}
+            % \end{tikzcd}%
+        \end{center}%
+    }
+\end{frame}

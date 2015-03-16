@@ -1,0 +1,156 @@
+\subsection{Онлайн-видео}
+
+\begin{frame}{Российский рынок онлайн-видео в 2012—2018 годах}
+
+    \pgfplotstableread[col sep=space,row sep=crcr]{
+    yyyy   val\\
+    2012   53\\
+    2013   59\\
+    2014   67\\
+    2015   76\\
+    2016   85\\
+    2017   95\\
+    2018  105\\
+    }\MonthlyViewers %(in millions)
+
+    \pgfplotstableread[col sep=space,row sep=crcr]{
+    yyyy   val\\
+    2012  106\\
+    2013  118\\
+    2014  144\\
+    2015  174\\
+    2016  209\\
+    2017  248\\
+    2018  292\\
+    }\ViewsPerYear %(in billions)
+
+    \pgfplotstableread[col sep=space,row sep=crcr]{
+    yyyy   val\\
+    2012  166\\
+    2013  167\\
+    2014  179\\
+    2015  191\\
+    2016  204\\
+    2017  218\\
+    2018  233\\
+    }\VideosPerViewer
+
+    \colorlet{bpcolor}{orange}
+
+    \colorlet{MvColor}{magenta}
+    \colorlet{bMvColor}{MvColor!50}
+    \colorlet{fMvColor}{MvColor!50}
+
+    \colorlet{VpyColor}{orange}
+    \colorlet{bVpyColor}{VpyColor!25}
+    \colorlet{fVpyColor}{VpyColor!50}
+
+    \colorlet{VpvColor}{teal}
+    \colorlet{bVpvColor}{VpvColor!25}
+    \colorlet{fVpvColor}{VpvColor!50}
+
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                    ybar,
+                    axis on top,
+                    %title={Cumulative Progress of Works},
+                    height=6cm,
+                    width=\textwidth,
+                    bar width=0.3cm,
+                    %ymajorgrids,
+                    %tick align=inside,
+                    %major grid style={draw=white},
+                    ymin=0, ymax=300,
+                    axis x line*=bottom,
+                    axis y line*=right,
+                    y axis line style={opacity=0.5},
+                    %tickwidth=0pt,
+                    enlarge x limits=true,
+                    enlarge y limits=true,
+                    legend style={
+                        at={(0.5,-0.2)},
+                        anchor=north,
+                        text depth=0pt,
+                        draw=none,
+                        opacity=0.7,
+                        legend columns=1,
+                        /tikz/every even column/.append style={right,column sep=0.5cm}
+                    },
+                    symbolic x coords={2012,2013,2014,2015,2016,2017,2018},
+                    xtick=data,
+                    nodes near coords={
+                        \tiny\color{brown!50!black}
+                        \pgfmathprintnumber[assume math mode=true,precision=0]
+                            {\pgfplotspointmeta}
+                    },
+                ]
+                \addplot [
+                    ultra thick,
+                    %draw=bpcolor!65,
+                    draw=bMvColor,
+                    fill=bMvColor,
+                    fill opacity=0.3,
+                    %opacity=0.7,
+                    line join=round,
+                    smooth,
+                    nodes near coords={},
+                    shift={(-30.0,-0.0)},
+                    forget plot
+                ] table[header=false] {\MonthlyViewers}
+                    -- (current plot end)  \closedcycle;
+
+
+                \addplot [
+                    ultra thick,
+                    %draw=bpcolor!35,
+                    draw=bVpyColor,
+                    fill=bVpyColor,
+                    fill opacity=0.3,
+                    %opacity=0.7,
+                    line join=round,
+                    smooth,
+                    nodes near coords={},
+                    legend style={},
+                    shift={(30.0,-0.0)},
+                    forget plot
+                ] table[header=false] {\ViewsPerYear}
+                    -- (current plot end)  \closedcycle;
+
+                \addplot [
+                    ultra thick,
+                    %draw=bpcolor!50,
+                    draw=bVpvColor,
+                    fill=bVpvColor,
+                    fill opacity=0.3,
+                    %opacity=0.7,
+                    line join=round,
+                    smooth,
+                    nodes near coords={},
+                    shift={(0.0,-0.0)},
+                    forget plot
+                ] table[header=false] {\VideosPerViewer}
+                    -- (current plot end)  \closedcycle;
+
+                \addplot [draw=MvColor, fill=fMvColor]
+                    table[header=false] {\MonthlyViewers};
+
+                \addplot [draw=VpvColor, fill=fVpvColor]
+                    table[header=false] {\VideosPerViewer};
+
+                \addplot [draw=VpyColor, fill=fVpyColor]
+                    table[header=false] {\ViewsPerYear};
+
+                \legend{
+                    \quad \scriptsize
+                    Среднее число зрителей в месяц (в миллионах),
+                    \quad \scriptsize
+                    Среднее число просмотров в месяц для одного зрителя,
+                    \quad \scriptsize
+                    Общее число просмотров видео в год (в миллиардах)
+                }
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+\end{frame}
+

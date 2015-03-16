@@ -1,0 +1,143 @@
+\documentclass[utf8x,14pt]{extarticle}
+
+\usepackage{styles/ginit}
+
+
+\begin{document}
+
+
+
+\pgfplotstableread{
+yyyy   val
+2012   53
+2013   59
+2014   67
+2015   76
+2016   85
+2017   95
+2018  105
+}\MonthlyViewers %(in millions)
+
+\pgfplotstableread{
+yyyy   val
+2012  106
+2013  118
+2014  144
+2015  174
+2016  209
+2017  248
+2018  292
+}\ViewsPerYear %(in billions)
+
+\pgfplotstableread{
+yyyy   val
+2012  166
+2013  167
+2014  179
+2015  191
+2016  204
+2017  218
+2018  233
+}\VideosPerViewer
+
+
+
+\colorlet{bpcolor}{orange!20!black!90}
+
+\begin{tikzpicture}
+    \begin{axis}[
+            ybar,
+            axis on top,
+            %title={Cumulative Progress of Works},
+            height=8cm,
+            width=\textwidth,
+            bar width=0.5cm,
+            %ymajorgrids,
+            %tick align=inside,
+            %major grid style={draw=white},
+            ymin=0, ymax=300,
+            axis x line*=bottom,
+            axis y line*=right,
+            y axis line style={opacity=0.5},
+            %tickwidth=0pt,
+            enlarge x limits=true,
+            enlarge y limits=true,
+            legend style={
+                at={(0.5,-0.2)},
+                anchor=north,
+                %draw=none,
+                legend columns=1,
+                /tikz/every even column/.append style={right,column sep=0.5cm}
+            },
+            symbolic x coords={2012,2013,2014,2015,2016,2017,2018},
+            xtick=data,
+            nodes near coords={
+                \sf\scriptsize
+                \pgfmathprintnumber[precision=0]{\pgfplotspointmeta}
+            },
+        ]
+
+        \addplot [
+            ultra thick,
+            %draw=bpcolor!65,
+            draw=bpcolor!35,
+            fill=bpcolor!35,
+            fill opacity=0.3,
+            %opacity=0.7,
+            line join=round,
+            smooth,
+            nodes near coords={},
+            shift={(-30.0,-2.0)},
+            forget plot
+        ] table[header=false] {\MonthlyViewers}
+            -- (current plot end)  \closedcycle;
+
+        \addplot [
+            ultra thick,
+            %draw=bpcolor!50,
+            draw=bpcolor!25,
+            fill=bpcolor!25,
+            fill opacity=0.3,
+            %opacity=0.7,
+            line join=round,
+            smooth,
+            nodes near coords={},
+            shift={(0.0,-2.0)},
+            forget plot
+        ] table[header=false] {\VideosPerViewer}
+            -- (current plot end)  \closedcycle;
+
+
+        \addplot [
+            ultra thick,
+            %draw=bpcolor!35,
+            draw=bpcolor!15,
+            fill=bpcolor!15,
+            fill opacity=0.3,
+            %opacity=0.7,
+            line join=round,
+            smooth,
+            nodes near coords={},
+            legend style={},
+            shift={(30.0,-2.0)},
+            forget plot
+        ] table[header=false] {\ViewsPerYear}
+            -- (current plot end)  \closedcycle;
+
+
+        \addplot [draw=bpcolor, fill=bpcolor!65] table[header=false] {\MonthlyViewers};
+
+        \addplot [draw=bpcolor, fill=bpcolor!50] table[header=false] {\VideosPerViewer};
+
+        \addplot [draw=bpcolor, fill=bpcolor!35] table[header=false] {\ViewsPerYear};
+
+        \legend{
+            \quad Среднее число зрителей в месяц (в миллионах),
+            \quad Среднее число просмотров в месяц для одного зрителя,
+            \quad Общее число просмотров видео в год (в миллиардах)
+        }
+    \end{axis}
+
+\end{tikzpicture}
+
+\end{document}
