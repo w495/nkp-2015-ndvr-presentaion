@@ -23,6 +23,15 @@
 ### Видео
 
 На слайде приведены ретроспектива и прогноз развития Российского интернет видео.
+
+Данные взяты из http://www.ewdn.com/online-video-russia.html
+
+    Online Video in Russia / Adrien Henni, Vladimir Baydin, Alexandra Chekareva et al.;
+    Ed. by Adrien Henni;
+    East-West Digital News. –– First edition. –– East-West Digital News, 2013. –– October. ––
+    Main partners: comScore, Ernst & Young, the Moscow Higher School of Economics, The Next Web.
+    URL: http://www.ewdn.com/online-video-russia.html
+
 Видно, что ожидается рост как и зрителей онлайн‑видео, так и количество просмотров от одного зрителя.
 Издатели, пользователи и сторонние организации часто редактируют и публикуют копии оригинального видео.
 Часто одинаковые видео снабжаются совершенно разными, причем очень часто не соблюдаются в том числе и правовые аспекты.
